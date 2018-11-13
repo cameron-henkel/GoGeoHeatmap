@@ -6,6 +6,8 @@ http://jsbin.com
 Copyright (c) 2018 by anonymous (http://jsbin.com/vunipiyuko/1/edit)
 
 Released under the MIT license: http://jsbin.mit-license.org
+
+Modified by Cameron Henkel
 -->
 <meta name="robots" content="noindex">
 <html>
@@ -114,7 +116,7 @@ Released under the MIT license: http://jsbin.mit-license.org
       new google.maps.LatLng(30.613775, -97.692020), // Purple route end
       ];
 
-	  var desiredRadiusPerPointInMeters = 1000;
+	  var desiredRadiusPerPointInMeters = 3219; // 2 mile radius
       function getNewRadius() {
           
 		  
@@ -163,7 +165,6 @@ Released under the MIT license: http://jsbin.mit-license.org
 
 	  var circles = [];
       function circleTest() {
-		//yeah, didn't put much effort into this part >_>
 		
 		 if (circles.length)
 		{
@@ -176,7 +177,7 @@ Released under the MIT license: http://jsbin.mit-license.org
 			for (i = 0;i < data.length; ++i)
 				circles[i] = new google.maps.Circle({
 					map:map,
-					radius:desiredRadiusPerPointInMeters,
+					radius:desiredRadiusPerPointInMeters*2, // Radius = 4 miles
 					fillColor:"#000000",
 					center: data[i]
 				});
