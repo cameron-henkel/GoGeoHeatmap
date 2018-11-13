@@ -122,7 +122,7 @@ Modified by Cameron Henkel
 		  
           var numTiles = 1 << map.getZoom();
           var center = map.getCenter();
-          var moved = google.maps.geometry.spherical.computeOffset(center, 10000, 90); /*1000 meters to the right*/
+          var moved = google.maps.geometry.spherical.computeOffset(center, 32190, 90); /*1000 meters to the right*/
           var projection = new MercatorProjection();
           var initCoord = projection.fromLatLngToPoint(center);
           var endCoord = projection.fromLatLngToPoint(moved);
@@ -132,7 +132,7 @@ Modified by Cameron Henkel
            var endPoint = new google.maps.Point(
             endCoord.x * numTiles,
             endCoord.y * numTiles);
-        var pixelsPerMeter = (Math.abs(initPoint.x-endPoint.x))/10000.0;
+        var pixelsPerMeter = (Math.abs(initPoint.x-endPoint.x))/32190.0;
         var totalPixelSize = Math.floor(desiredRadiusPerPointInMeters*pixelsPerMeter);
         console.log(totalPixelSize);
         return totalPixelSize;
