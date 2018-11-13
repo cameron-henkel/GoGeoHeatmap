@@ -116,13 +116,13 @@ Modified by Cameron Henkel
       new google.maps.LatLng(30.613775, -97.692020), // Purple route end
       ];
 
-	  var desiredRadiusPerPointInMeters = 3219; // 2 mile radius
+	  var desiredRadiusPerPointInMeters = 6437; // 4 mile radius
       function getNewRadius() {
           
 		  
           var numTiles = 1 << map.getZoom();
           var center = map.getCenter();
-          var moved = google.maps.geometry.spherical.computeOffset(center, 32190, 90); /*1000 meters to the right*/
+          var moved = google.maps.geometry.spherical.computeOffset(center, 64370, 90); /*1000 meters to the right*/
           var projection = new MercatorProjection();
           var initCoord = projection.fromLatLngToPoint(center);
           var endCoord = projection.fromLatLngToPoint(moved);
@@ -132,7 +132,7 @@ Modified by Cameron Henkel
            var endPoint = new google.maps.Point(
             endCoord.x * numTiles,
             endCoord.y * numTiles);
-        var pixelsPerMeter = (Math.abs(initPoint.x-endPoint.x))/32190.0;
+        var pixelsPerMeter = (Math.abs(initPoint.x-endPoint.x))/64370.0;
         var totalPixelSize = Math.floor(desiredRadiusPerPointInMeters*pixelsPerMeter);
         console.log(totalPixelSize);
         return totalPixelSize;
@@ -177,7 +177,7 @@ Modified by Cameron Henkel
 			for (i = 0;i < data.length; ++i)
 				circles[i] = new google.maps.Circle({
 					map:map,
-					radius:desiredRadiusPerPointInMeters*2, // Radius = 4 miles
+					radius:desiredRadiusPerPointInMeters/2, // Radius = 2 miles
 					fillColor:"#000000",
 					center: data[i]
 				});
