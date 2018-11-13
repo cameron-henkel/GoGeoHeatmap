@@ -116,7 +116,7 @@ Modified by Cameron Henkel
       new google.maps.LatLng(30.613775, -97.692020), // Purple route end
       ];
 
-	  var desiredRadiusPerPointInMeters = 6437; // 4 mile radius
+	  var desiredRadiusPerPointInMeters = 3219; // 4 mile radius
       function getNewRadius() {
           
 		  
@@ -177,7 +177,7 @@ Modified by Cameron Henkel
 			for (i = 0;i < data.length; ++i)
 				circles[i] = new google.maps.Circle({
 					map:map,
-					radius:desiredRadiusPerPointInMeters/2, // Radius = 2 miles
+					radius:desiredRadiusPerPointInMeters, // Radius = 2 miles
 					fillColor:"#000000",
 					center: data[i]
 				});
