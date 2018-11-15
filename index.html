@@ -16,7 +16,10 @@ Modified by Cameron Henkel
     <title>Google Maps JavaScript API v3 Example: Heatmap Layer</title>
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-lf_lqvpuhwBQRChnAsAzI2tAP4USJzA&libraries=visualization,geometry"></script>
 	 <script>
-		      var map, pointarray, heatmap;
+      function formChanged() {
+	  var desiredRadiusPerPointInMeters = document.getElementsByName("circles_radius")[0].value;
+      }
+      var map, pointarray, heatmap;
       var TILE_SIZE = 256;
 
       //Mercator --BEGIN--
@@ -116,7 +119,6 @@ Modified by Cameron Henkel
       new google.maps.LatLng(30.613775, -97.692020), // Purple route end
       ];
 
-	  var desiredRadiusPerPointInMeters = 3219; // 4 mile radius
       function getNewRadius() {
           
 		  
@@ -190,5 +192,6 @@ Modified by Cameron Henkel
   <body onload="initialize()">
     <div id="map_canvas" style="height: 600px; width: 800px;"></div>
     <button onclick="circleTest()">Test With Circles</button>
+    <input type="text" name="circles_radius" value="3219" onkeyup="formChanged()" onchange="formChanged()"/>
   </body>
 </html>
