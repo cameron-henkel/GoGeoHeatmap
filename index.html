@@ -17,7 +17,7 @@ Modified by Cameron Henkel
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-lf_lqvpuhwBQRChnAsAzI2tAP4USJzA&libraries=visualization,geometry"></script>
 	 <script>
       function formChanged() {
-	  desiredRadiusPerPointInMeters = number(document.getElementsByName("circles_radius")[0].value);
+	  desiredRadiusPerPointInMeters = Number(document.getElementsByName("circles_radius")[0].value);
 	  heatmap.setOptions({radius:getNewRadius()});
       }
       var map, pointarray, heatmap;
