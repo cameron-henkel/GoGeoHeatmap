@@ -174,7 +174,7 @@ Modified by Cameron Henkel
 	  var circles = [];
 	  var circle1color = "#000000";
       function circle1() {
-		
+		heatmap.setMap(null)
 		 if (circles.length)
 		{
 			for (i = 0;i < circles.length; ++i)
@@ -188,6 +188,8 @@ Modified by Cameron Henkel
 					map:map,
 					radius:desiredRadiusPerPointInMeters, // Radius = 2 miles
 					fillColor:circle1color,
+					fillOpacity: 0.05,
+					strokeWeight: 0,
 					center: data[i]
 				});
 		 }
@@ -198,7 +200,7 @@ Modified by Cameron Henkel
 
   <body onload="initialize()">
     <div id="map_canvas" style="height: 600px; width: 800px;"></div>
-    <button onclick="circle1()">Test With Circles</button>
+    <button onclick="circle1()">Circles 1</button>
     <input type="number" name="circles_radius" value="3219" onkeyup="radius1change()" onchange="radius1change()"/>
     <input type="color" name="color1" value="#000000" oninput="color1change()"/>
   </body>
