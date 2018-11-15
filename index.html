@@ -19,6 +19,7 @@ Modified by Cameron Henkel
       function radius1change() {
 	  desiredRadiusPerPointInMeters = Number(document.getElementsByName("circles_radius")[0].value);
 	  heatmap.setOptions({radius:getNewRadius()});
+	  circle1();
       }
       function color1change() {
           circle1color = document.getElementsByName("color1")[0].value;
@@ -188,8 +189,8 @@ Modified by Cameron Henkel
 					map:map,
 					radius:desiredRadiusPerPointInMeters, // Radius = 2 miles
 					fillColor:circle1color,
-					fillOpacity: 0.05,
-					strokeWeight: 0,
+					fillOpacity: 0.1,
+					strokeWeight: 0.5,
 					center: data[i]
 				});
 		 }
