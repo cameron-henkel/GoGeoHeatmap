@@ -175,18 +175,17 @@ Modified by Cameron Henkel
 		  
           google.maps.event.addListener(map, 'zoom_changed', function () {
               heatmap.setOptions({radius:getNewRadius()});
-	      rectangle.setOptions({
-		      strokeWeight: 0,
-		      fillColor: '#FFFFFF',
-		      fillOpacity: 1,
-		      map: map,
-		      bounds: map.getBounds()
-		      draggable: true,
-		      editable: true
-	      });
           });
       }
-	  var rectangle = new google.maps.Rectangle();
+	  var rectangle = new google.maps.Rectangle({
+		   strokeWeight: 0,
+		   fillColor: '#FFFFFF',
+		   fillOpacity: 1,
+		   map: map,
+		   bounds: map.getBounds()
+		   draggable: true,
+		   editable: true
+	  });
 	  var circles = [];
 	  var circle1color = "#000000";
 	  var circle1op = 0.1;
