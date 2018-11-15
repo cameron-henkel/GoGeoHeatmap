@@ -25,6 +25,12 @@ Modified by Cameron Henkel
           circle1color = document.getElementsByName("color1")[0].value;
 	  circle1();
       }
+      function op1change() {
+          circle1op = document.getElementsByName("circle_opacity")[0].value;
+	  circle1();
+      }
+		 
+		 
       var map, pointarray, heatmap;
       var TILE_SIZE = 256;
 
@@ -175,7 +181,6 @@ Modified by Cameron Henkel
 	  var circles = [];
 	  var circle1color = "#000000";
       function circle1() {
-		heatmap.setMap(null)
 		 if (circles.length)
 		{
 			for (i = 0;i < circles.length; ++i)
@@ -189,7 +194,7 @@ Modified by Cameron Henkel
 					map:map,
 					radius:desiredRadiusPerPointInMeters, // Radius = 2 miles
 					fillColor:circle1color,
-					fillOpacity: 0.1,
+					fillOpacity:circle1op,
 					strokeWeight: 0.5,
 					center: data[i]
 				});
@@ -204,5 +209,8 @@ Modified by Cameron Henkel
     <button onclick="circle1()">Circles 1</button>
     <input type="number" name="circles_radius" value="3219" onkeyup="radius1change()" onchange="radius1change()"/>
     <input type="color" name="color1" value="#000000" oninput="color1change()"/>
+	  Opacity
+    <input type="number" name="circle_opacity" value="0.1" onkeyup="op1change()" onchange="op1change()"/>
+    <button onclick="heatmap.setMap(null)">Clear Heatmap</button>
   </body>
 </html>
