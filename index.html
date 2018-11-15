@@ -17,7 +17,8 @@ Modified by Cameron Henkel
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-lf_lqvpuhwBQRChnAsAzI2tAP4USJzA&libraries=visualization,geometry"></script>
 	 <script>
       function formChanged() {
-	  var desiredRadiusPerPointInMeters = document.getElementsByName("circles_radius")[0].value;
+	  desiredRadiusPerPointInMeters = document.getElementsByName("circles_radius")[0].value;
+	  heatmap.setOptions({radius:getNewRadius()});
       }
       var map, pointarray, heatmap;
       var TILE_SIZE = 256;
@@ -118,7 +119,8 @@ Modified by Cameron Henkel
       new google.maps.LatLng(30.618845, -97.692048),
       new google.maps.LatLng(30.613775, -97.692020), // Purple route end
       ];
-
+	
+      var desiredRadiusPerPointInMeters = 3219
       function getNewRadius() {
           
 		  
