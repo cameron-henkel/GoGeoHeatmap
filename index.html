@@ -16,9 +16,13 @@ Modified by Cameron Henkel
     <title>GoGeo Stop Visualizer</title>
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-lf_lqvpuhwBQRChnAsAzI2tAP4USJzA&libraries=visualization,geometry"></script>
 	 <script>
-      function formChanged() {
+      function radius1change() {
 	  desiredRadiusPerPointInMeters = Number(document.getElementsByName("circles_radius")[0].value);
 	  heatmap.setOptions({radius:getNewRadius()});
+      }
+      function color1change() {
+          circle1color = document.getElementsByName("color1")[0].value;
+	  circle1();
       }
       var map, pointarray, heatmap;
       var TILE_SIZE = 256;
@@ -168,7 +172,8 @@ Modified by Cameron Henkel
       }
 
 	  var circles = [];
-      function circleTest() {
+	  var circle1color = "#000000";
+      function circle1() {
 		
 		 if (circles.length)
 		{
@@ -182,7 +187,7 @@ Modified by Cameron Henkel
 				circles[i] = new google.maps.Circle({
 					map:map,
 					radius:desiredRadiusPerPointInMeters, // Radius = 2 miles
-					fillColor:"#000000",
+					fillColor:circle1color,
 					center: data[i]
 				});
 		 }
@@ -193,7 +198,8 @@ Modified by Cameron Henkel
 
   <body onload="initialize()">
     <div id="map_canvas" style="height: 600px; width: 800px;"></div>
-    <button onclick="circleTest()">Test With Circles</button>
-    <input type="number" name="circles_radius" value="3219" onkeyup="formChanged()" onchange="formChanged()"/>
+    <button onclick="circle1()">Test With Circles</button>
+    <input type="number" name="circles_radius" value="3219" onkeyup="radius1change()" onchange="radius1change()"/>
+    <input type="color" name="color1" value="#000000" oninput="color1change()"/>
   </body>
 </html>
