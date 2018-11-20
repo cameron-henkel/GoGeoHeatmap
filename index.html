@@ -30,6 +30,11 @@ Modified by Cameron Henkel
 	  circle1();
       }
 		 
+      function op2change() {
+	      rectangle.setOptions({
+		    fillOpacity: document.getElementsByName("rectangle_opacity")[0].value;
+	       });
+      }
 		 
       var map, pointarray, heatmap;
       var TILE_SIZE = 256;
@@ -218,8 +223,10 @@ Modified by Cameron Henkel
     <button onclick="circle1()">Circles 1</button>
     <input type="number" name="circles_radius" value="3219" onkeyup="radius1change()" onchange="radius1change()"/>
     <input type="color" name="color1" value="#000000" oninput="color1change()"/>
-	  Opacity
+	  Circles Opacity
     <input type="number" name="circle_opacity" value="0.1" onkeyup="op1change()" onchange="op1change()"/>
     <button onclick="heatmap.setMap(null)">Clear Heatmap</button>
+	  Rectangle Opacity
+    <input type="number" name="rectangle_opacity" value="1" onkeyup="op2change()" onchange="op2change()"/>
   </body>
 </html>
