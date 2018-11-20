@@ -162,6 +162,8 @@ Modified by Cameron Henkel
 
           map = new google.maps.Map(document.getElementById('map_canvas'),
           mapOptions);
+	      
+	  var rectangle = new google.maps.Rectangle();
 
           pointArray = new google.maps.MVCArray(data);
 
@@ -174,6 +176,14 @@ Modified by Cameron Henkel
 		  
           google.maps.event.addListener(map, 'zoom_changed', function () {
               heatmap.setOptions({radius:getNewRadius()});
+	      // Get the current bounds, which reflect the bounds before the zoom.
+		  rectangle.setOptions({
+		    strokeWeight: 0,
+		    fillColor: '#FFFFFF',
+		    fillOpacity: 1,
+		    map: map,
+		    bounds: map.getBounds()
+	       });
           });
       }
 	  var circles = [];
