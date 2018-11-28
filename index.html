@@ -29,6 +29,32 @@ Modified by Cameron Henkel
           circle1op = document.getElementsByName("circle_opacity")[0].value;
 	  circle1();
       }
+      function rectShow() {
+	rectangle.setOptions({
+		    strokeWeight: 0,
+		    fillColor: '#FFFFFF',
+		    fillOpacity: 1,
+		    map: map,
+		    draggable: true,
+		    bounds: map.getBounds()
+	 });
+      }
+      function rectHide() {
+	rectangle.setOptions({
+		    strokeWeight: 0,
+		    fillColor: '#FFFFFF',
+		    fillOpacity: 0,
+		    map: map,
+		    draggable: true,
+		    bounds: map.getBounds()
+	 });
+      }
+      function resetView() {
+// 	  map.setOptions({
+// 	      zoom: 14,
+//               center: new google.maps.LatLng(30.636500, -97.679753),
+// 	  });
+      }
 		 
       var map, pointarray, heatmap;
       var TILE_SIZE = 256;
@@ -156,7 +182,7 @@ Modified by Cameron Henkel
           var mapOptions = {
               zoom: 14,
               center: new google.maps.LatLng(30.636500, -97.679753),
-              mapTypeId: google.maps.MapTypeId.SATELLITE
+              mapTypeId: google.maps.MapTypeId.ROADMAP
           };
 
           map = new google.maps.Map(document.getElementById('map_canvas'),
@@ -175,15 +201,6 @@ Modified by Cameron Henkel
 		  
           google.maps.event.addListener(map, 'zoom_changed', function () {
               heatmap.setOptions({radius:getNewRadius()});
-	      // Get the current bounds, which reflect the bounds before the zoom.
-		  rectangle.setOptions({
-		    strokeWeight: 0,
-		    fillColor: '#FFFFFF',
-		    fillOpacity: 1,
-		    map: map,
-		    draggable: true,
-		    bounds: map.getBounds()
-	       });
           });
       }
 	  var circles = [];
@@ -221,5 +238,8 @@ Modified by Cameron Henkel
 	  Circles Opacity
     <input type="number" name="circle_opacity" value="0.1" onkeyup="op1change()" onchange="op1change()"/>
     <button onclick="heatmap.setMap(null)">Clear Heatmap</button>
+    <button onclick="rectShow()">Show white background</button>
+    <button onclick="rectHide()">Clear white background</button>
+    <button onclick="resetView()">Reset view</button>
   </body>
 </html>
