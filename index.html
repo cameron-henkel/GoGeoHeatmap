@@ -177,7 +177,7 @@ Modified by Cameron Henkel
         return totalPixelSize;
          
       }
-
+      var rectangle;
       function initialize() {
           var mapOptions = {
               zoom: 14,
@@ -188,7 +188,7 @@ Modified by Cameron Henkel
           map = new google.maps.Map(document.getElementById('map_canvas'),
           mapOptions);
 	      
-	  var rectangle = new google.maps.Rectangle();
+	  rectangle = new google.maps.Rectangle();
 
           pointArray = new google.maps.MVCArray(data);
 
